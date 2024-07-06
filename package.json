@@ -5,12 +5,13 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"clean": "rm -rf dist",
+		"clean": "rm -rf ./dist/*",
 		"build": "vite build",
 		"test": "echo 'Not yet implemented!'",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
-		"deploy": "npm run clean && npm run build && gh-pages -d dist"
+		"pre-deploy": "npm run clean && npm run build",
+        "deploy": "npm run pre-deploy && gh-pages -d dist -r https://github.com/HawkShoppingPlatformTeam/HawkShoppingPlatformTeam.github.io"
 	},
 	"dependencies": {
 		"react": "^18.2.0",
